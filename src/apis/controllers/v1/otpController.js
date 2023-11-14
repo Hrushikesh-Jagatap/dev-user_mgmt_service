@@ -166,7 +166,7 @@ const verifyOTP = async ({ otp, phone, deviceId, fcmToken, headers, }) => {
     try {
       const config = {
         method: 'get',
-        url: `${loadBalancer}/auth/apis/v1/token/${a}`,
+        url: `${auth}/auth/apis/v1/token/${a}`,
         headers,
       };
       const data = await axios(config);
