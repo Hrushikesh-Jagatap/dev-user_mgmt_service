@@ -189,7 +189,8 @@ const verifyOTP = async ({ otp, phone, deviceId, fcmToken, headers, }) => {
 
     if (app_name === 'teacherApp') {
       const existingTeacher = await getTeacher(userId);
-      if (!existingTeacher.data) {
+    console.log(existingTeacher.data.length)
+      if (existingTeacher.data.length==0) {
         const data = await createTeacher(userId);
         console.log('+++++++++++++++++++++++++++', data);
         if (data === null || data === undefined) {
@@ -202,7 +203,7 @@ const verifyOTP = async ({ otp, phone, deviceId, fcmToken, headers, }) => {
 
     if (headers.app_name === 'studentApp') {
       const existingStudent = await getStudent(userId);
-      if (!existingStudent.data) {
+       if (existingStudent.data.length==0) {
         createStudent(userId);
       } else {
         console.log('Teacher with userId already exists:', existingStudent);
