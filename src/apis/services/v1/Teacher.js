@@ -9,7 +9,7 @@ const getTeacher = async (args) => {
   try {
     const config = {
       method: 'get',
-      url: `${loadBalancer}/tms/apis/v1/user/${userId}`,
+      url: `${teacher}/tms/apis/v1/user/${userId}`,
       headers: {
         app_name: 'teacherApp',
         app_version_code: '101',
@@ -33,7 +33,7 @@ const createTeacher = async (args) => {
   try {
     const config = {
       method: 'post',
-      url: `${loadBalancer}/tms/apis/v1/teacher-create`,
+      url: `${teacher}/tms/apis/v1/teacher-create`,
       headers: {
         app_name: 'teacherApp',
         app_version_code: '101',
