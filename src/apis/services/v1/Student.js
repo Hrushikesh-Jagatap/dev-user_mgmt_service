@@ -8,7 +8,7 @@ const getStudent = async (args) => {
   try {
     const config = {
       method: 'get',
-      url: `${loadBalancer}/sts/apis/v1/user/${userId}`,
+      url: `${student}/sts/apis/v1/user/${userId}`,
       headers: {
         app_name: 'studentApp',
         app_version_code: '101',
@@ -32,7 +32,7 @@ const createStudent = async (args) => {
   try {
     const config = {
       method: 'post',
-      url: `${loadBalancer}/sts/apis/v1/student-create`,
+      url: `${student}/sts/apis/v1/student-create`,
       headers: {
         app_name: 'studentApp',
         app_version_code: '101',
