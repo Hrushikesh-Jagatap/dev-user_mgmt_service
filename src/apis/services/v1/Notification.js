@@ -3,7 +3,7 @@ const {
   ErrorHandler: { INTERNAL_SERVER_ERROR },
 } = require('intelli-utility');
 
-const { loadBalancer, systemToken } = require('@config');
+const { loadBalancer, systemToken,ms } = require('@config');
 const saveFCMToken = async (userId, deviceId, fcmToken, appName) => {
   try {
     const payload = {
@@ -12,7 +12,7 @@ const saveFCMToken = async (userId, deviceId, fcmToken, appName) => {
       fcmToken,
       appName,
     };
-    const url = `${loadBalancer}/ms/apis/v1/fcm-token`;
+    const url = `${ms}/ms/apis/v1/fcm-token`;
     const { data: result } = await RequestHandler.post({ url, data: payload });
 
     if (result) {
