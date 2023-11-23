@@ -22,21 +22,21 @@ const sendEmailWithPDF = async (data) => {
     Email:         ${email}
     PricePerHour:  ${pricePerHour}`;
 
-    page.drawText(text, { x: 50, y: 300 });
+    page.drawText(text, { x: 50, y: 500 });
 
     const pdfBytes = await pdfDoc.save();
 
     let transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: 'vikashekma151299@gmail.com',
-            pass: 'ocra apiu qtwc pirq'
+            user: 'aryan.amit0824@gmail.com',
+            pass: 'fzxw utgl tvvl xbsi'
         }
     });
 
     let mailOptions = {
-        from: email,
-        to: 'vikashekma151299@gmail.com',
+        from: 'aryan.amit0824@gmail.com',
+        to: email,
         subject: 'Home Tuition Details',
         text: 'Please find the attached PDF with the Home Tuition Details',
         attachments: [
@@ -83,15 +83,14 @@ PricePerHour:  ${pricePerHour}`;
     let transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: 'vikashekma151299@gmail.com',
-            pass: 'ocra apiu qtwc pirq'
-
+            user: 'aryan.amit0824@gmail.com',
+            pass: 'fzxw utgl tvvl xbsi'
         }
     });
 
     try {
         let info = await transporter.sendMail({
-            from: 'vikashekma151299@gmail.com',
+            from: 'aryan.amit0824@gmail.com',
             to: email,
             subject: 'Private Tuition Details',
             text: 'Please find the attached PDF with the Home Tuition Details',
