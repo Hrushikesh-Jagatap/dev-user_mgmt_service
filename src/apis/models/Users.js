@@ -18,16 +18,24 @@ const UserSchema = new mongoose.Schema(
     },
 
     adminData: {
-      status: {
-        type: String,
-
-        default: ADMIN.STATUS.INACTIVE,
+           isOtpVerified: {
+        type: Boolean,
+        default: false,
       },
-      role: {
-        type: String,
 
-        default: ADMIN.ROLE.NON_ADMIN,
+      lastLogin: {
+        type: Date,
       },
+      // status: {
+      //   type: String,
+
+      //   default: ADMIN.STATUS.INACTIVE,
+      // },
+      // role: {
+      //   type: String,
+
+      //   default: ADMIN.ROLE.NON_ADMIN,
+      // },
     },
     teacherData: {
       isOtpVerified: {
