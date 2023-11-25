@@ -26,7 +26,7 @@ const getStudent = async (args) => {
   }
 };
 
-const createStudent = async (args) => {
+const createStudent = async (args,isadmin) => {
    const userid = args.toString();
   console.log('user id is', args);
   try {
@@ -41,6 +41,8 @@ const createStudent = async (args) => {
       },
       data: {
         userId: userid,
+        isadmin:isadmin,
+
       },
     };
     const result = await axios(config);
