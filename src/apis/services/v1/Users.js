@@ -152,6 +152,7 @@ const findOneAndUpdate = async (conditions, update, options) => {
   try {
     // const { Users } = db.getInstance();
     const result = await Users.findOneAndUpdate(conditions, update, options);
+        console.log(result);
     return result;
   } catch (err) {
     throw new DATA_BASE_ERROR('Error while findOne and update in the DB');
@@ -175,13 +176,21 @@ const userHasAdminAccess = async ({ phone, headers, whichAdminRoleType }) => {
   if (app_name !== APP_NAME.ADMIN) {
     return { status: false, user: {} };
   }
-  const conditions = { phone };
-  const user = await Users.findOne(conditions);
+  // const conditions = { phone };
+  // const user = await Users.findOne(conditions);
 
-  if (!user || !isAdmin(user.adminData.status, user.adminData.role, whichAdminRoleType)) {
-    throw new UNAUTHORIZED_ACCESS();
-  }
-  return { user, status: true };
+  // if (!user || !isAdmin(user.adminData.status, user.adminData.role, whichAdminRoleType)) {
+  //   throw new UNAUTHORIZED_ACCESS();
+  // }
+  // return { user, status: true };
+  return { status: true, user: {} };
+  
+  // const conditions = { phone };
+  // const user = await Users.findOne(conditions);
+  // if (!user || !isAdmin(user.adminData.status, user.adminData.role, whichAdminRoleType)) {
+  //   throw new UNAUTHORIZED_ACCESS();
+  // }
+  // return { user, status: true };
 };
 
 const upsertUser = async ({ phone, appName}) => {
