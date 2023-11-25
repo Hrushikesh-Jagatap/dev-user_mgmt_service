@@ -5,7 +5,10 @@ const { AuthManager } = require('intelli-utility');
 const UserRouter = require('./Users');
 const OtpRouter = require('./otp');
 const HomeRouter = require('./HomeRouter')
-const PrivateRouter = require('./PrivateRouter')
+const PrivateRouter = require('./PrivateRouter');
+const ContactRouter = require('./ContactRouter');
+
+router.use('/users', ContactRouter)
 
 router.use('/users', HomeRouter);
 
