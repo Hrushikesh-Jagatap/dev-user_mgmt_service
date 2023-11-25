@@ -30,7 +30,7 @@ const { createStudent, getStudent } = require('../../services/v1/Student')
     try {
       const config = {
         method: 'get',
-        url: `${loadBalancer}/auth/apis/v1/token/${a}`,
+        url: `${auth}/auth/apis/v1/token/${a}`,
         headers,
       };
       const data = await axios(config);
