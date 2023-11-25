@@ -107,7 +107,45 @@ PricePerHour:  ${pricePerHour}`;
     }
 };
 
+const sendEmailWithContact = async (data) => {
+    const { name, email, phoneNumber, message } = data;
+    const pdfDoc = await PDFDocument.create();
+    const page = pdfDoc.addPage();
+    const text = `Name:          ${name}
+    Phone Number:  ${phoneNumber}
+    Message:       ${message}
+    Email:         ${email}`;
+    page.drawText(text, { x: 50, y: 500 });
+    const pdfBytes = await pdfDoc.save();
+  
+    let transporter = nodemailer.createTransport({
+        service: 'Gmail',
+        auth: {
+            user: 'aryan.amit0824@gmail.com',
+            pass: 'fzxw utgl tvvl xbsi'
+        }
+    });
+    try {
+        let info = await transporter.sendMail({
+            from: 'aryan.amit0824@gmail.com',
+            to: email,
+            subject: 'Contact Us Details',
+            text: 'Please find the attached PDF Details',
+            attachments: [
+                {
+                    filename: 'contact_us.pdf',
+                    content: pdfBytes
+                }
+            ]
+        });
+        console.log('Email sent: ' + info.response);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 module.exports = {
     sendEmailWithPDF,
-    sendEmailWithPDFPrivate
+    sendEmailWithPDFPrivate,
+    sendEmailWithContact
 };
