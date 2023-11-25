@@ -12,6 +12,9 @@ const IsNewUser = (user, app_version_code, app_name) => {
   if (app_name === 'studentApp') {
     return !user.studentData.isOtpVerified;
   }
+  if(app_name === 'admin') {
+    return !user.adminData.isOtpVerified;
+  }
   return true;
 };
 
@@ -35,6 +38,17 @@ const AppData = async (app_version_code, app_name, user, newValues) => {
 
     return Object.freeze({
       studentData: {
+        ...prevAppData,
+        isOtpVerified,
+        lastLogin: new Date(),
+      },
+    });
+  }
+
+  if (app_name === 'admin') {
+    const prevAppData = user === null || typeof user === 'undefined' ? null : user.adminData;
+    return Object.freeze({
+      adminData: {
         ...prevAppData,
         isOtpVerified,
         lastLogin: new Date(),
