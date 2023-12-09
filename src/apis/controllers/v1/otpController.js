@@ -68,16 +68,16 @@ const processToSendOtp = async (params) => {
       proData: {},
     };
 
-    if (headers.app_name === 'studentApp' && args.isNewUser) {
-      createStudent({ userId: args.userId });
-    }
+    // if (headers.app_name === 'studentApp' && args.isNewUser) {
+    //   createStudent({ userId: args.userId });
+    // }
 
-    if (headers.app_name === 'teacherApp' && args.isNewUser) {
-      createTeacher({ userId: args.userId });
-    }
-    if(headers.app_name === 'admin' && args.isNewUser) {
-       createTeacher({ userId: args.userId });
-    }
+    // if (headers.app_name === 'teacherApp' && args.isNewUser) {
+    //   createTeacher({ userId: args.userId });
+    // }
+    // if(headers.app_name === 'admin' && args.isNewUser) {
+    //    createTeacher({ userId: args.userId });
+    // }
 
     delete args.isNewUser;
 
