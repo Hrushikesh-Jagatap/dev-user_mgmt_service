@@ -12,7 +12,7 @@ const saveFCMToken = async (userId, deviceId, fcmToken, appName) => {
       fcmToken,
       appName,
     };
-    const url = `${ms}/ms/apis/v1/fcm-token`;
+    const url = `${ms}/ums/apis/v1/fcm-token`;
     const { data: result } = await RequestHandler.post({ url, data: payload });
 
     if (result) {
